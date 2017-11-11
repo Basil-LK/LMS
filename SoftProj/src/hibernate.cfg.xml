@@ -15,9 +15,15 @@
 
         <!-- Database connection settings -->
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+<<<<<<< HEAD
         <property name="connection.url">jdbc:mysql://dt5.ehb.be/OOF042</property>
         <property name="connection.username">OOF042</property>
         <property name="connection.password">15483279</property>
+=======
+        <property name="connection.url">jdbc:mysql://dt5.ehb.be/SP2Team11</property>
+        <property name="connection.username">SP2Team11</property>
+        <property name="connection.password">QJC48w</property>
+>>>>>>> 8e63f21d229b3025738230cb5752d84f72c639fc
 
         <!-- JDBC connection pool (use the built-in) -->
         <property name="connection.pool_size">1</property>
@@ -46,6 +52,6 @@
 	<mapping class="basicClass.Survey"/>
 	<mapping class="basicClass.Training"/>
 
-    </session-factory>
+     </session-factory> 
 
 </hibernate-configuration>
