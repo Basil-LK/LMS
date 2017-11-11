@@ -1,10 +1,20 @@
 package basicClass;
 
-//@Entity
-//@Table(name="Address")
+
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+@Entity
+@Table(name="Address")
 public class Address {
 	
-	//@Id
+	@Id
 	//@Column(name="addressId")
 	private int AddressId;
 	//@Column(name="streetname")
@@ -13,6 +23,8 @@ public class Address {
 	private int houseNumber;
 	//@Column(name="city")
 	private String city;
+	//@Column(name="visibility")
+	private int visibility;
 	
 	public Address(String streetname, int houseNumber, String city) {
 		super();
@@ -26,6 +38,9 @@ public class Address {
 		this.streetname = streetname;
 		this.houseNumber = houseNumber;
 		this.city = city;
+	}
+	public Address() {
+		
 	}
 	public String getStreetname() {
 		return streetname;
@@ -51,4 +66,46 @@ public class Address {
 	public void setAddressId(int AddressId) {
 		this.AddressId = AddressId;
 	}
+	public int getVisibility() {
+		return visibility;
+	}
+	public void setVisibility(int visibility) {
+		this.visibility = visibility;
+	}
+		
+		/////////////////////////////////////////////////////
+		///////////////////////DAO///////////////////////////
+		/////////////////////////////////////////////////////
+	
+public static void main(String[] args) {
+		
+	
+		
+		
+			
+			
+			
+			
+			//opening session
+			
+			SessionFactory sessionFactory = new Configuration().configure().addAnnotatedClass(Address.class).buildSessionFactory();
+			Session session = sessionFactory.openSession();
+			session.beginTransaction();
+			Address address = new Address();
+			
+			
+			//Statement UPDATE
+			address =(Address) session.get(Address.class, 0);
+			//address.setStreetname("updated");
+			//session.update(address);
+			
+			
+			//closing session
+			session.getTransaction().commit();
+			System.out.println("Statement Worked!");
+			session.close();
+			sessionFactory.close();
+
+		}
 }
+	

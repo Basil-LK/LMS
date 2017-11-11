@@ -17,7 +17,7 @@
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="connection.url">jdbc:mysql://dt5.ehb.be/OOF042</property>
         <property name="connection.username">OOF042</property>
-        <property name="connection.password">15483279/property>
+        <property name="connection.password">15483279</property>
 
         <!-- JDBC connection pool (use the built-in) -->
         <property name="connection.pool_size">1</property>
@@ -39,7 +39,6 @@
 	<mapping class="basicClass.Answer"/>
 	<mapping class="basicClass.Certificat"/>
 	<mapping class="basicClass.Employee"/>
-	<mapping class="basicClass.Location"/>
 	<mapping class="basicClass.Login"/>
 	<mapping class="basicClass.Material"/>
 	<mapping class="basicClass.Question"/>
