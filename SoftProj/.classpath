@@ -5,6 +5,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate Library"/>
-	<classpathentry kind="lib" path="D:/DIG-X/SoftProj2/JARs/connector MySQL/mysql-connector-java-5.1.44-bin.jar"/>
+	<classpathentry kind="lib" path="D:/DIG-X/SoftProj2/LMS/JARs/connector MySQL/mysql-connector-java-5.1.44-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
