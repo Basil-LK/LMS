@@ -1,31 +1,38 @@
 package basicClass;
 
-//@Entity
-//@Table(name="Address")
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+//import org.hibernate.HibernateException; 
+import org.hibernate.Session; 
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+
+
+
+@Entity
+@Table(name="Address")
 public class Address {
 	
-	//@Id
-	//@Column(name="addressId")
+	@Id
+	@Column(name="addressId")
 	private int AddressId;
-	//@Column(name="streetname")
+	@Column(name="streetname")
 	private String streetname;
-	//@Column(name="houseNumber)
+	@Column(name="houseNumber")
 	private int houseNumber;
-	//@Column(name="city")
+	@Column(name="city")
 	private String city;
+	@Column(name="visibility")
+	private int visibility;
 	
-	public Address(String streetname, int houseNumber, String city) {
-		super();
-		this.streetname = streetname;
-		this.houseNumber = houseNumber;
-		this.city = city;
-	}
-	public Address(int AddressId,String streetname, int houseNumber, String city) {
-		super();
-		this.AddressId = AddressId;
-		this.streetname = streetname;
-		this.houseNumber = houseNumber;
-		this.city = city;
+
+	public Address() {
+		
 	}
 	public String getStreetname() {
 		return streetname;
@@ -51,4 +58,50 @@ public class Address {
 	public void setAddressId(int AddressId) {
 		this.AddressId = AddressId;
 	}
+	public int isVisibility() {
+		return visibility;
+	}
+	public void setVisibility(int i) {
+		this.visibility = i;
+	}
+
+	
+
+
+@Override
+	public String toString() {
+		return "Address [AddressId=" + AddressId + ", streetname=" + streetname + ", houseNumber=" + houseNumber
+				+ ", city=" + city + ", visibility=" + visibility + "]";
+	}
+public void addressDAO() {
+	
+//opening session
+SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+Session session = sessionFactory.openSession();
+session.beginTransaction();
+
+Address address = new Address();
+address = (Address) session.get(Address.class, 1);
+
+//Update statement DAO ADDRESS
+
+address.setVisibility(1);
+session.update(address);
+
+
+//closing session
+session.getTransaction().commit();
+System.out.println("Statement Worked!");
+session.close();
+sessionFactory.close();
+
+
+}
+
+public static void main(String[] args) {
+	
+	new Address().addressDAO();
+}
+
+
 }
