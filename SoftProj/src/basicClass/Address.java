@@ -1,5 +1,5 @@
 package basicClass;
-//test blablabla
+
 //@Entity
 //@Table(name="Address")
 public class Address {
